@@ -6,8 +6,10 @@
 
 //APPROACH : 
 
-    traverse the array and if any valu eis equal to 0 change the 0th row and 0th col value to 0...use that value to change the whole row and col to 0
+   1 :  traverse the array and if any valu eis equal to 0 change the 0th row and 0th col value to 0...use that value to change the whole row and col to 0
       ie. traverse again if the pertivular row or col is 0 change the element to 0
+   2 : Or else rather then converting the 1st row and col we can use 2 extra array for rows and columns to check which row or col we j=have to modify
+        in that case the code will be much clean and easier but will take extra space of O(n + m)
 
 
 //COMPLEXITY 
