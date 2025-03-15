@@ -15,7 +15,7 @@
   follow the same staps to calculate total number of operations
 
 TIME COMPLEXITY : O(n)
-SPACE COMPLEXITY : O(n)
+SPACE COMPLEXITY : O(1)
 
 //code
 
