@@ -68,3 +68,8 @@ SPACE COMPLEXITY : O(4*n) = O(n)
                 
                     }
                 };
+
+
+//APPROACH 2 :
+              or else find the longest common suffix and longest common prefix 
+              and check if its concatnation string is longer than the minimum of s1, s2 or not
