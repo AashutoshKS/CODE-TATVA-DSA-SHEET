@@ -9,6 +9,7 @@
 
 //APPROACH : 
               finding pairs with a specific sum is easier when the array is sorted using 2 pointer
+              since we are removing the elements thus 1 element can be utilised at max 1 time
 
 
 //COMPLEXITY : 
