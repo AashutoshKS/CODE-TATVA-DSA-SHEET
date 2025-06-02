@@ -17,23 +17,21 @@
 
 
 //CODE :
-        class Solution {
-        public:
-            int findMaxLength(vector<int>& nums) {
-                nums.insert(nums.begin(), 0);
-                map<int,int>mp;
-                for(int i = 1; i < nums.size(); i++) {
-                    if(nums[i] == 1) nums[i] = nums[i-1] + 1;
-                    else nums[i] = nums[i-1] - 1;
-                }
-                int ans = 0;
-                for(int i = nums.size() - 1; i >= 0; i--) {
-                    mp[nums[i]] = i + 1;
-                }
-                for(int i = nums.size() - 1; i >= 0; i--) {
-                    int val = i - mp[nums[i]] + 1;
-                    ans = max(ans,val);
-                }
-                return ans;
-            }
-        };
+      class Solution {
+      public:
+          int findMaxLength(vector<int>& nums) {
+              nums.insert(nums.begin(), 0);
+              map<int,int>mp;
+              for(int i = 1; i < nums.size(); i++) {
+                  if(nums[i] == 1) nums[i] = nums[i-1] + 1;
+                  else nums[i] = nums[i-1] - 1;
+              }
+              int ans = 0;
+              for(int i = 0; i < nums.size(); i++) {
+                  if(mp[nums[i]] == 0) mp[nums[i]] = i + 1;
+                  int val = i - mp[nums[i]] + 1;
+                  ans = max(ans,val);
+              }
+              return ans;
+          }
+      };
