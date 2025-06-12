@@ -19,28 +19,28 @@
 
 //COMPLEXITY :
       TIME COMPLETY : O(n)
-      SPACE COMPLEXITY : O(n)
+      SPACE COMPLEXITY : O(26) = O(1)
 
 
 //CODE :
       class Solution {
       public:
           string customSortString(string order, string s) {
-              map<char,int>mp;
-              map<char,int>mp1;
+              vector<int>mp(26);
+              vector<int>mp1(26);
               for(int i = 0 ;i < s.size() ;i++) {
-                  mp[s[i]]++;
+                  mp[s[i] - 'a']++;
               }
               string ans = "";
               for(int i = 0;i < order.size();i++) {
-                  mp1[order[i]]++;
-                  while(mp[order[i]] > 0) {
+                  mp1[order[i] - 'a']++;
+                  while(mp[order[i] - 'a'] > 0) {
                       ans += order[i];
-                      mp[order[i]]--;
+                      mp[order[i] - 'a']--;
                   }
               }
               for(int i = 0;i < s.size() ;i++) {
-                  if(mp[s[i]] != 0) {
+                  if(mp[s[i] - 'a'] != 0) {
                       ans.push_back(s[i]);
                   }
               }
