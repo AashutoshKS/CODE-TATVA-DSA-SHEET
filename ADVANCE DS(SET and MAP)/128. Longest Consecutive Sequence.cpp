@@ -17,23 +17,21 @@
 
 
 //CODE :
-      class Solution {
-      public:
-          int longestConsecutive(vector<int>& nums) {
-              unordered_set<int> chk(nums.begin(), nums.end());
-              int count = 0;
-              for (int i = 0; i < nums.size(); i++) {
-                  int num = nums[i];
-                  if (chk.contains(num - 1)) {
-                      continue;
-                  }
-                  int ans = 0;
-                  while (chk.contains(num)) {
-                      ans++;
-                      num++;
-                  }
-                  count = max(count, ans);
-              }
-              return count;
-          }
-      };
+            class Solution {
+            public:
+                int longestConsecutive(vector<int>& nums) {
+                    int ans = 0;
+                    unordered_set<int> seen{nums.begin(), nums.end()};
+            
+                    for (int num : seen) {
+                        if (seen.contains(num - 1))
+                            continue;
+                        int length = 1;
+                        while (seen.contains(++num))
+                            ++length;
+                        ans = max(ans, length);
+                    }
+            
+                    return ans;
+                }
+            };
