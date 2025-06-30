@@ -18,7 +18,7 @@
 
 
 
-//APPROACH :
+//APPROACH 1: SORTING
       to maximise the result
       always kill the enemy with least power as many times as you can
       use points to increase the power by the maximum power of enemy and remove the maximum by the nums
@@ -46,3 +46,28 @@
               return ans;
           }
       };        
+_____________________________________________________________________________________________________________________
+
+
+//APPROACH 2 : WITHOUT SORTING
+      if minimum is greater than curr power return 0
+      else add the elements in power except for the minimum one(only kill the minimum power enemy)
+
+
+//COMPLEXITY : 
+      TIME COMPLEXITY : O(n)
+      SPACE COMPLEXITY : O(1)
+
+
+      
+//CODE :
+      class Solution {
+      public:
+          long long maximumPoints(vector<int>& nums, long long curr) {
+              int minimum = *min_element(nums.begin(), nums.end());
+              if(curr < minimum) return 0;
+              for(int i : nums) curr += (long long)i;
+              curr -= minimum;
+              return curr/minimum;
+          }
+      };
