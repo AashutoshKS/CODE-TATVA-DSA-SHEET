@@ -12,7 +12,23 @@
     check which will lead to minimum cost
 
 
-//CODE :
+
+//CODE : RECURSION :
+      class Solution {
+      public:
+          int minCost(vector<int>& nums, int n) {
+              if(n < 0) return 0;
+              if(n <= 1) return nums[n];
+              return nums[n] + min(minCost(nums,n-1), minCost(nums,n-2));
+          }
+          int minCostClimbingStairs(vector<int>& nums) {
+              int n=nums.size();
+                return min(minCost(nums, n-1), minCost(nums, n-2));
+          }
+      };
+
+
+//CODE : DP
       class Solution {
       public:
           int minCostClimbingStairs(vector<int>& nums) {
