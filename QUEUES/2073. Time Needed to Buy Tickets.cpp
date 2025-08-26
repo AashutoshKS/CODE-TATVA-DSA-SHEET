@@ -10,27 +10,30 @@
 
 
 
+//APPROACH :
+      Think if nums[i] < nums[k] && i < k then k must wait at least nums[i] sec
+      if nums[i] > nums[k] && i > k, we can ignore the extra values           
+
+
+
 
 //CODE :
       class Solution {
       public:
           int timeRequiredToBuy(vector<int>& tickets, int k) {
-              int count=0;
-              for(int i=0;i<tickets.size();i++){
-                  if(i<=k){
-                      if(tickets[i]<=tickets[k]){
-                          count=count+tickets[i];
+              int count = 0;
+              for (int i = 0; i < tickets.size(); i++) {
+                  if (i <= k) {
+                      if (tickets[i] <= tickets[k]) {
+                          count = count + tickets[i];
+                      } else {
+                          count += tickets[k];
                       }
-                      else{
-                          count+=tickets[k];
-                      }
-                  }
-                  else{
-                      if(tickets[i]<tickets[k]){
-                          count=count+tickets[i];
-                      }
-                      else{
-                          count=count+tickets[k]-1;
+                  } else {
+                      if (tickets[i] < tickets[k]) {
+                          count = count + tickets[i];
+                      } else {
+                          count = count + tickets[k] - 1;
                       }
                   }
               }
