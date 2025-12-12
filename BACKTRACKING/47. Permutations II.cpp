@@ -32,3 +32,41 @@
                 return ans;
             }
         };
+
+
+
+//APPROACH 2:
+      Check all possibilities by keeping a track of used elements....
+
+
+
+
+//CODE :
+         class Solution {
+            public:
+                set<vector<int>>st;
+                int n;
+                void solve(vector<int>& curr, vector<int>& nums, vector<int>& used) {
+                    if(curr.size() == n) {
+                        st.insert(curr);
+                        return ;
+                    }
+                    for(int i = 0;i < n; i++) {
+                        if(used[i] == 0) {
+                            curr.push_back(nums[i]);
+                            used[i] = 1;
+                            solve(curr, nums, used);
+                            curr.pop_back();
+                            used[i] = 0;
+                        } 
+                    }
+                }
+                vector<vector<int>> permuteUnique(vector<int>& nums) {
+                    vector<int>curr;
+                    vector<int>used(nums.size());
+                    n = nums.size();
+                    solve(curr, nums, used);
+                    vector<vector<int>>ans(st.begin(), st.end());
+                    return ans;
+                }
+            };
